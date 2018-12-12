@@ -1,3 +1,4 @@
+ # -*- coding: utf-8 -*-
 # Задача-1:
 # Напишите небольшую консольную утилиту,
 # позволяющую работать с папками текущей директории.
@@ -13,3 +14,50 @@
 # Для решения данной задачи используйте алгоритмы из задания easy,
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
+
+import hw05_easy as easy
+import os
+
+cycle = 0
+
+while cycle == 0:
+    print("1. Перейти в папку")
+    print("2. Просмотреть содержимое текущей папки")
+    print("3. Удалить папку")
+    print("4. Создать папку")
+    print("5. Показать в какой директории находимся")
+    print("6. Выход")
+
+    choice = int(input("Введите цифру: "))
+
+    if choice > 6 or choice < 1:
+        print("\nНе верный выбор, введите: 1, 2, 3 или 4 \n")
+
+    elif choice == 6:
+        cycle = 1
+
+    elif choice == 5:
+        easy.current_path()
+
+    elif choice == 2:
+        list = list(os.listdir(os.getcwd()))
+        print(list)
+
+    elif choice == 1:
+        path_go = input("\nВведите полный путь, куда переходим: ")
+        os.chdir(path_go)
+
+    elif choice == 3:
+        path_del = input("\nВведите полный путь, какую папку надо удалить: ")
+        easy.dir_remove(path_del)
+
+    elif choice == 4:
+        path_add = input("\nВведите полный путь, какую папку надо добавить: ")
+        easy.dir_add(path_add)
+
+    wayout = input("\nПродолжим? (введите y для продолжения): ")
+
+    if wayout == "y":
+        continue
+    else:
+        break
