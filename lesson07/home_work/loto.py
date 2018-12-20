@@ -198,8 +198,8 @@ if __name__ == '__main__':
             add_list_comp3  = change_in_list(i, add_list_comp3)
 
             cross_out = input("Зачеркнуть цифру? (y/n): ")
-            #проверяем соотвествутет ли выбор человека правде
 
+            #проверяем соотвествутет ли выбор человека правде
             if cross_out == "n":
                 if i in add_list_human1 or i in add_list_human2 or i in add_list_human3:
                     print("\nТакая цифра есть, будьте внимательнее. Вы проиграли!")
